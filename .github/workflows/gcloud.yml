@@ -26,4 +26,4 @@ jobs:
           version: '>= 363.0.0'
       
       - name: 'Use gcloud CLI'
-        run: 'gcloud functions deploy function-2324 --gen2 --runtime=python39 --source=/src --entry-point=hello_http'
+        run: 'gcloud functions deploy function-2324 --region=us-central1 --gen2 --runtime=python39 --source=/src --entry-point=hello_http'
