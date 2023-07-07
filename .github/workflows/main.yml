@@ -23,7 +23,7 @@ jobs:
       - name: Cloud Functions Deploy
         uses: google-github-actions/deploy-cloud-functions@v1
         with:
-          name: myfuncapptestscw2df3
+          name: function-3
           description: Test python cloud function # nullable
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           region: us-central1
