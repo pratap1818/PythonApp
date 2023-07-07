@@ -1,0 +1,38 @@
+name: GCP FunctionApp Deploy
+
+on:
+  push:
+    branches:
+      - master  # Change this to the branch you want to trigger the workflow on
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: ${{ secrets.GCP_SA_PASSWORD }}
+          
+      - name: Cloud Functions Deploy
+        uses: google-github-actions/deploy-cloud-functions@v0.1.2
+        with:
+          name: myfuncapp
+          description: Test python cloud function # nullable
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          region: us-central1
+          source_dir: src
+          # name of our function in our main.py file, defaults to the resource name suffix 
+          entry_point: hello_world
+          # runtime to use for the function
+          runtime: python39
+          # the function execution timeout
+          timeout: 60
+          # the maximum number of instances for the function.
+          max_instances: 1
