@@ -1,0 +1,21 @@
+name: GCP Postgres Deploy
+
+on:
+  push:
+    branches:
+      - main  # Change this to the branch you want to trigger the workflow on
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: ${{ secrets.GCP_DB_PASSWORD }}
