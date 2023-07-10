@@ -1,4 +1,4 @@
-name: GCP Postgres Deploy
+name: GCP Postgres Deploy - Python
 
 on:
   push:
