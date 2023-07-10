@@ -32,4 +32,4 @@ jobs:
           version: '>= 363.0.0'
       
       - name: 'Use gcloud CLI'
-        run: 'gcloud sql import sql pivotal-bonbon-392007:us-central1:posgresql gs://bucket0sgqd1/DeltaScript/sampledb.sql --database=testdb'
+        run: 'gcloud sql import sql posgresql gs://bucket0sgqd1/DeltaScript/sampledb.sql --database=testdb'
