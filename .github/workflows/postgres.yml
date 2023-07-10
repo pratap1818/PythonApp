@@ -25,3 +25,11 @@ jobs:
         with:
           path: './DB/DeltaScript/sampledb.sql'
           destination: 'bucket0sgqd1/DeltaScript'
+          
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          version: '>= 363.0.0'
+      
+      - name: 'Use gcloud CLI'
+        run: 'gcloud sql import sql posgresql gs://bucket0sgqd1//DeltaScript//sampledb.sql --database=testdb'
