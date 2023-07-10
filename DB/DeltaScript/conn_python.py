@@ -11,6 +11,12 @@ def connect_with_connector() -> sqlalchemy.engine.base.Engine:
     Initializes a connection pool for a Cloud SQL instance of Postgres.
 
     Uses the Cloud SQL Python Connector package.
+    """
+    # Note: Saving credentials in environment variables is convenient, but not
+    # secure - consider a more secure solution such as
+    # Cloud Secret Manager (https://cloud.google.com/secret-manager) to help
+    # keep secrets safe.
+
     instance_connection_name = os.environ[
         "INSTANCE_CONNECTION_NAME"
     ]  # e.g. 'project:region:instance'
@@ -33,3 +39,5 @@ def connect_with_connector() -> sqlalchemy.engine.base.Engine:
             ip_type=ip_type,
         )
         return conn
+
+    return getconn()
