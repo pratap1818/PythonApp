@@ -19,3 +19,9 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           credentials_json: ${{ secrets.GCP_DB_PASSWORD }}
+          
+      - id: 'upload-file'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: '/DB/DeltaScript/sampledb.sql'
+          destination: 'bucket0sgqd1/sampledb.sql'
