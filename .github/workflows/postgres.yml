@@ -24,4 +24,4 @@ jobs:
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
           path: './DB/DeltaScript/sampledb.sql'
-          destination: 'bucket0sgqd1/sampledb.sql'
+          destination: 'bucket0sgqd1/DeltaScript'
