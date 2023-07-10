@@ -26,4 +26,5 @@ jobs:
           version: '>= 363.0.0'
       
       - name: 'Use gcloud CLI'
-        run: 'gcloud functions deploy function-2324 --region=us-central1 --gen2 --runtime=python39 --source=src --entry-point=hello_http'
+       #run: 'gcloud functions deploy function-2324 --region=us-central1 --gen2 --runtime=python39 --source=src --entry-point=hello_http'
+        run: 'gcloud functions deploy library-monitoring-function --region=us-central1 --gen2 --entry-point hello_http --build-env-vars-file ./src/var/build.yaml --env-vars-file ./src/var/run.yaml --runtime python311 --trigger-http --service-account=content-library-psql@fiery-buttress-391707.iam.gserviceaccount.com'
